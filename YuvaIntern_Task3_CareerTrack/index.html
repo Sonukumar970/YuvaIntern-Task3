@@ -1,0 +1,322 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Track job and internship applications">
+    <title>
+      CareerTrack
+    </title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="layout">
+      <aside>
+        <div class="brand">
+          <span>
+            C
+          </span>
+          CareerTrack
+        </div>
+        <p class="nav-label">
+          WORKSPACE
+        </p>
+        <div class="nav active">
+          ▦
+&nbsp;
+          Dashboard
+        </div>
+        <div class="nav">
+          ▤
+&nbsp;
+          Applications
+        </div>
+        <div class="tip">
+          <b>
+            Small steps, big goals.
+          </b>
+          <p>
+            Keep applications organized and follow up with confidence.
+          </p>
+        </div>
+        <div class="profile">
+          <span>
+            SB
+          </span>
+          <div>
+            <b>
+              Sonu Kumar Badal
+            </b>
+            <small>
+              Candidate workspace
+            </small>
+          </div>
+        </div>
+      </aside>
+      <main>
+        <header>
+          <div>
+            <p class="eyebrow">
+              YOUR CAREER WORKSPACE
+            </p>
+            <h1>
+              Application dashboard
+            </h1>
+            <p class="muted">
+              Stay organized. Follow up. Move forward.
+            </p>
+          </div>
+          <button class="primary" id="addBtn">
+            ＋ Add application
+          </button>
+        </header>
+        <section class="stats">
+          <article>
+            <span>
+              Total applications
+            </span>
+            <strong id="total">
+              0
+            </strong>
+            <small>
+              All roles you are tracking
+            </small>
+          </article>
+          <article>
+            <span>
+              In progress
+            </span>
+            <strong id="progress">
+              0
+            </strong>
+            <small>
+              Applied or interview stage
+            </small>
+          </article>
+          <article>
+            <span>
+              Interviews
+            </span>
+            <strong id="interviews">
+              0
+            </strong>
+            <small>
+              Opportunities to prepare for
+            </small>
+          </article>
+          <article>
+            <span>
+              Offers
+            </span>
+            <strong id="offers">
+              0
+            </strong>
+            <small>
+              Positive outcomes
+            </small>
+          </article>
+        </section>
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>
+                Your applications
+              </h2>
+              <p class="muted">
+                Manage your job and internship search in one place.
+              </p>
+            </div>
+            <button class="secondary" id="exportBtn">
+              ⇩ Export CSV
+            </button>
+          </div>
+          <div class="filters">
+            <input id="search" placeholder="Search company or role..." aria-label="Search applications">
+            <select id="statusFilter" aria-label="Filter status">
+              <option>
+                All statuses
+              </option>
+              <option>
+                Wishlist
+              </option>
+              <option>
+                Applied
+              </option>
+              <option>
+                Interview
+              </option>
+              <option>
+                Offer
+              </option>
+              <option>
+                Rejected
+              </option>
+            </select>
+            <select id="typeFilter" aria-label="Filter type">
+              <option>
+                All types
+              </option>
+              <option>
+                Full-time
+              </option>
+              <option>
+                Internship
+              </option>
+              <option>
+                Part-time
+              </option>
+              <option>
+                Contract
+              </option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    COMPANY / ROLE
+                  </th>
+                  <th>
+                    TYPE
+                  </th>
+                  <th>
+                    STATUS
+                  </th>
+                  <th>
+                    APPLIED
+                  </th>
+                  <th>
+                    FOLLOW-UP
+                  </th>
+                  <th>
+                    ACTIONS
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="rows">
+              </tbody>
+            </table>
+            <div class="empty" id="empty">
+              <h3>
+                No applications found
+              </h3>
+              <p>
+                Add your first opportunity or adjust your filters.
+              </p>
+              <button class="primary" id="emptyAdd">
+                ＋ Add application
+              </button>
+            </div>
+          </div>
+          <div class="foot">
+            <span id="resultCount">
+              Showing 0 applications
+            </span>
+            <span>
+              Saved in this browser
+            </span>
+          </div>
+        </section>
+        <footer>
+          CareerTrack · YuvaIntern Task 3 practical project
+        </footer>
+      </main>
+    </div>
+    <dialog id="modal">
+      <form id="appForm">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow">
+              OPPORTUNITY DETAILS
+            </p>
+            <h2 id="modalTitle">
+              Add application
+            </h2>
+          </div>
+          <button type="button" class="x" id="closeBtn">
+            ×
+          </button>
+        </div>
+        <input type="hidden" id="editId">
+        <div class="form-grid">
+          <label>
+            Company name *
+            <input id="company" required maxlength="70" placeholder="e.g. Acme Technologies">
+          </label>
+          <label>
+            Job role *
+            <input id="role" required maxlength="70" placeholder="e.g. Frontend Developer">
+          </label>
+          <label>
+            Application type
+            <select id="jobType">
+              <option>
+                Full-time
+              </option>
+              <option>
+                Internship
+              </option>
+              <option>
+                Part-time
+              </option>
+              <option>
+                Contract
+              </option>
+            </select>
+          </label>
+          <label>
+            Status
+            <select id="jobStatus">
+              <option>
+                Wishlist
+              </option>
+              <option>
+                Applied
+              </option>
+              <option>
+                Interview
+              </option>
+              <option>
+                Offer
+              </option>
+              <option>
+                Rejected
+              </option>
+            </select>
+          </label>
+          <label>
+            Date applied
+            <input id="applied" type="date">
+          </label>
+          <label>
+            Follow-up date
+            <input id="followUp" type="date">
+          </label>
+          <label class="wide">
+            Job link (optional)
+            <input id="jobLink" type="url" placeholder="https://...">
+          </label>
+          <label class="wide">
+            Notes
+            <textarea id="notes" rows="3" maxlength="400" placeholder="Recruiter, interview notes, next steps...">
+            </textarea>
+          </label>
+        </div>
+        <p id="error" class="error" role="alert">
+        </p>
+        <div class="modal-actions">
+          <button type="button" class="secondary" id="cancelBtn">
+            Cancel
+          </button>
+          <button type="submit" class="primary">
+            Save application
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite">
+    </div>
+    <script src="./script.js">
+    </script>
+  </body>
+</html>
